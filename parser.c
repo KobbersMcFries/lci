@@ -91,6 +91,7 @@ void deleteBlockNode(BlockNode *node)
 BlockNodeList *createBlockNodeList(void)
 {
 	BlockNodeList *p = malloc(sizeof(BlockNodeList));
+
 	if (!p) {
 		perror("malloc");
 		return NULL;
@@ -157,7 +158,7 @@ void deleteBlockNodeList(BlockNodeList *list)
  */
 ConstantNode *createBooleanConstantNode(int data)
 {
-	ConstantNode *p = malloc(sizeof(ConstantNode));
+	ConstantNode *p = malloc(sizeof(ConstantNode)+1);
 	if (!p) {
 		perror("malloc");
 		return NULL;
@@ -188,15 +189,7 @@ ConstantNode *createIntegerConstantNode(int data)
 	return p;
 }
 
-/**
- * Creates a float constant.
- *
- * \param [in] data The float constant value.
- *
- * \return A pointer to a float constant whose value is \a data.
- *
- * \retval NULL Memory allocation failed.
- */
+
 ConstantNode *createFloatConstantNode(float data)
 {
 	ConstantNode *p = malloc(sizeof(ConstantNode));
